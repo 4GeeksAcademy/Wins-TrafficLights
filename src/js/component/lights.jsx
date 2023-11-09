@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 const Lights = () => {
+    const [ color, setColor ] = useState("red");
+
     return (
         <div className="traffic-lights">
-            <div className="rounded-circle lights red">Stop</div>
-            <div className="rounded-circle lights yellow">Slow Down</div>
-            <div className="rounded-circle lights green">GOOOOO!</div>
+            <div 
+                onClick={() => setColor('red')}
+                className={"rounded-circle lights red" + (color === 'red' ? " glow":"")}
+            >
+                Stop
+            </div>
+            <div 
+                onClick={() => setColor('yellow')}
+                className={"rounded-circle lights yellow" + (color === 'yellow' ? " glow":"")}
+            >
+                Slow Down
+            </div>
+            <div 
+                onClick={() => setColor('green')}
+                className={"rounded-circle lights green" + (color === 'green' ? " glow":"")}
+            >
+                GOOOOO!
+            </div>
         </div>
     )
 };
